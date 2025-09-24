@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หมาล่าหม้อไฟ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #f8f8f8; /* Light background color as a base */
+            position: relative;
+        }
+
+        /* --- Faint Mala Meatball Pattern --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Using a placeholder image for the mala meatball pattern */
+            /* You can replace this URL with your own pattern image */
+            background-image: url('https://placehold.co/100x100/f3f4f6/5d5d5d?text=🍡');
+            background-repeat: repeat;
+            background-size: 75px; /* Adjust size as needed */
+            opacity: 0.1; /* Adjust for desired faintness */
+            z-index: -1;
+        }
+
+        .hero-section {
+            /* Updated background image URL for a more appealing visual */
+            background-image: url('https://images.unsplash.com/photo-1596773345479-79872e411b42?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .card {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+    </style>
+</head>
+<body class="bg-stone-100 text-stone-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg py-4 px-6 fixed top-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-red-600">หมาล่าหม้อไฟ</a>
+            <nav class="space-x-4 hidden md:block">
+                <a href="index.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">หน้าแรก</a>
+                <a href="menu.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">เมนู</a>
+                <a href="pro.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">โปรโมชั่น</a>
+                <a href="buy.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">ติดต่อเรา</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="buy.html" class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300 hidden md:block">
+                    สั่งซื้อ
+                </a>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600">
+                    <svg class="w-6 h-6 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-stone-900 bg-opacity-90 z-40 hidden md:hidden">
+        <div class="flex justify-end p-4">
+            <button id="close-mobile-menu" class="text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center space-y-6 text-2xl text-white">
+            <a href="index.html" class="hover:text-red-600 transition-colors duration-300">หน้าแรก</a>
+            <a href="menu.html" class="hover:text-red-600 transition-colors duration-300">เมนู</a>
+            <a href="pro.html" class="hover:text-red-600 transition-colors duration-300">โปรโมชั่น</a>
+            <a href="buy.html" class="hover:text-red-600 transition-colors duration-300">ติดต่อเรา</a>
+            <a href="buy.html" class="bg-red-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-red-700 transition-colors duration-300 mt-4">
+                สั่งซื้อ
+            </a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-center text-white">
+        <div class="relative z-10 p-6 md:p-12">
+            <h1 class="text-4xl md:text-7xl font-bold mb-4 animate-fade-in">หมาล่า...ความเผ็ดที่ไม่มีใครเทียบ</h1>
+            <p class="text-lg md:text-2xl mb-8 animate-fade-in delay-100">
+                เผ็ดร้อน สะท้านทรวง ครบรสถึงใจ
+            </p>
+            <a href="buy.html" class="bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition-transform transform hover:scale-105 animate-fade-in delay-200">
+                เริ่มสั่งเลย!
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Menu Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-stone-800 mb-12">เมนูยอดนิยม</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Menu Item 1 -->
+                <div class="card p-6 rounded-lg shadow-xl text-center transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/400x300/F08080/FFFFFF?text=หม่าล่าหม้อไฟ" alt="หม่าล่าหม้อไฟ" class="rounded-lg mb-4 w-full">
+                    <h3 class="text-2xl font-bold mb-2 text-stone-900">หม่าล่าหม้อไฟ</h3>
+                    <p class="text-stone-700">หม่าล่าหม้อไฟรสชาติเข้มข้น จัดเต็มเครื่องเคียง</p>
+                </div>
+                <!-- Menu Item 2 -->
+                <div class="card p-6 rounded-lg shadow-xl text-center transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/400x300/F08080/FFFFFF?text=ปลาหม่าล่า" alt="ปลาหม่าล่า" class="rounded-lg mb-4 w-full">
+                    <h3 class="text-2xl font-bold mb-2 text-stone-900">ปลาหม่าล่า</h3>
+                    <p class="text-stone-700">ปลาหม่าล่าเนื้อนุ่ม เผ็ดชาถึงใจ</p>
+                </div>
+                <!-- Menu Item 3 -->
+                <div class="card p-6 rounded-lg shadow-xl text-center transition-transform transform hover:scale-105">
+                    <img src="https://placehold.co/400x300/F08080/FFFFFF?text=เนื้อหม่าล่า" alt="เนื้อหม่าล่า" class="rounded-lg mb-4 w-full">
+                    <h3 class="text-2xl font-bold mb-2 text-stone-900">เนื้อหม่าล่า</h3>
+                    <p class="text-stone-700">เนื้อหม่าล่าคุณภาพเยี่ยม เผ็ดร้อนกำลังดี</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-red-600 text-white py-16 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-4">อยากลองความเผ็ดร้อนแล้วใช่ไหม?</h2>
+            <p class="text-xl mb-8">อย่ารอช้า สั่งเลยความอร่อยที่มาพร้อมกับความเผ็ดชา</p>
+            <a href="buy.html" class="bg-white text-red-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-stone-200 transition-colors duration-300">
+                สั่งเลยตอนนี้!
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 หมาล่าหม้อไฟ. สงวนลิขสิทธิ์</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-red-600">Facebook</a>
+                <a href="#" class="hover:text-red-600">Instagram</a>
+                <a href="#" class="hover:text-red-600">Line</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Hide mobile menu on resize for desktop view
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

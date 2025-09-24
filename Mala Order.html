@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เมนูหมาล่า</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-stone-100 text-stone-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg py-4 px-6 fixed top-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-red-600">หมาล่าหม้อไฟ</a>
+            <nav class="space-x-4 hidden md:block">
+                <a href="index.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">หน้าแรก</a>
+                <a href="menu.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">เมนู</a>
+                <a href="pro.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">โปรโมชั่น</a>
+                <a href="buy.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">ติดต่อเรา</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="buy.html" class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300 hidden md:block">
+                    สั่งซื้อ
+                </a>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600">
+                    <svg class="w-6 h-6 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-stone-900 bg-opacity-90 z-40 hidden md:hidden">
+        <div class="flex justify-end p-4">
+            <button id="close-mobile-menu" class="text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center space-y-6 text-2xl text-white">
+            <a href="index.html" class="hover:text-red-600 transition-colors duration-300">หน้าแรก</a>
+            <a href="menu.html" class="hover:text-red-600 transition-colors duration-300">เมนู</a>
+            <a href="pro.html" class="hover:text-red-600 transition-colors duration-300">โปรโมชั่น</a>
+            <a href="buy.html" class="hover:text-red-600 transition-colors duration-300">ติดต่อเรา</a>
+            <a href="buy.html" class="bg-red-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-red-700 transition-colors duration-300 mt-4">
+                สั่งซื้อ
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-red-600 mb-12">เมนูหมาล่า</h1>
+            
+            <!-- Mala Hotpot Section -->
+            <h2 class="text-3xl font-bold text-stone-800 mb-6">หม่าล่าหม้อไฟ</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+                <!-- Menu Item Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="data:image/jpeg;base64,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" alt="หม่าล่าหม้อไฟเนื้อ" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2 text-stone-900">หม้อไฟเนื้อวัวพรีเมียม</h3>
+                    <p class="text-stone-700 text-sm mb-4">เนื้อวัวสไลด์บางเฉียบในน้ำซุปหม่าล่าเผ็ดร้อน</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">฿100</span>
+                        <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300">
+                            เพิ่มลงตะกร้า
+                        </button>
+                    </div>
+                </div>
+                <!-- Menu Item Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/FF5733/FFFFFF?text=หม้อไฟซีฟู้ด" alt="หม่าล่าหม้อไฟซีฟู้ด" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2 text-stone-900">หม้อไฟทะเลรวม</h3>
+                    <p class="text-stone-700 text-sm mb-4">อาหารทะเลสดใหม่ในน้ำซุปหม่าล่ารสจัดจ้าน</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">฿300</span>
+                        <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300">
+                            เพิ่มลงตะกร้า
+                        </button>
+                    </div>
+                </div>
+                <!-- Menu Item Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/FF5733/FFFFFF?text=หม้อไฟเจ" alt="หม่าล่าหม้อไฟเจ" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2 text-stone-900">หม้อไฟผักรวม</h3>
+                    <p class="text-stone-700 text-sm mb-4">สำหรับสายคลีนและมังสวิรัติ</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">฿180</span>
+                        <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300">
+                            เพิ่มลงตะกร้า
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grilled Mala Section -->
+            <h2 class="text-3xl font-bold text-stone-800 mb-6">หม่าล่าปิ้งย่าง</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+                <!-- Menu Item Card 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/FF8C00/FFFFFF?text=ปลาหม่าล่า" alt="ปลาหม่าล่า" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2 text-stone-900">ปลาหม่าล่า</h3>
+                    <p class="text-stone-700 text-sm mb-4">ปลากะพงย่างราดซอสหม่าล่า</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">฿120</span>
+                        <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300">
+                            เพิ่มลงตะกร้า
+                        </button>
+                    </div>
+                </div>
+                <!-- Menu Item Card 5 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/FF8C00/FFFFFF?text=เนื้อหม่าล่า" alt="เนื้อหม่าล่า" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2 text-stone-900">เนื้อหม่าล่านุ่ม</h3>
+                    <p class="text-stone-700 text-sm mb-4">เนื้อย่างบนเตาถ่านหอมๆ</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">฿100</span>
+                        <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300">
+                            เพิ่มลงตะกร้า
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Dishes & Drinks Section -->
+            <h2 class="text-3xl font-bold text-stone-800 mb-6">เครื่องเคียง & เครื่องดื่ม</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+                <!-- Side Dish Item 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/A52A2A/FFFFFF?text=ข้าวสวย" alt="ข้าวสวย" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2 text-stone-900">ข้าวสวย</h3>
+                    <p class="text-stone-700 text-sm mb-4">ข้าวสวยหุงร้อนๆ</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">฿20</span>
+                        <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300">
+                            เพิ่มลงตะกร้า
+                        </button>
+                    </div>
+                </div>
+                <!-- Drink Item 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                    <img src="https://placehold.co/600x400/228B22/FFFFFF?text=น้ำเก๊กฮวย" alt="น้ำเก๊กฮวย" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2 text-stone-900">น้ำเก๊กฮวย</h3>
+                    <p class="text-stone-700 text-sm mb-4">ดับกระหายจากความเผ็ดร้อน</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-red-600">฿35</span>
+                        <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300">
+                            เพิ่มลงตะกร้า
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="index.html" class="bg-stone-300 text-stone-800 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-stone-400 transition-colors duration-300">
+                    กลับสู่หน้าหลัก
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 หมาล่าหม้อไฟ. สงวนลิขสิทธิ์</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-red-600">Facebook</a>
+                <a href="#" class="hover:text-red-600">Instagram</a>
+                <a href="#" class="hover:text-red-600">Line</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

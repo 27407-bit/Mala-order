@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรโมชั่น</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-stone-100 text-stone-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg py-4 px-6 fixed top-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-red-600">หมาล่าหม้อไฟ</a>
+            <nav class="space-x-4 hidden md:block">
+                <a href="index.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">หน้าแรก</a>
+                <a href="menu.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">เมนู</a>
+                <a href="pro.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">โปรโมชั่น</a>
+                <a href="buy.html" class="text-stone-700 hover:text-red-600 transition-colors duration-300">ติดต่อเรา</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="buy.html" class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300 hidden md:block">
+                    สั่งซื้อ
+                </a>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600">
+                    <svg class="w-6 h-6 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-stone-900 bg-opacity-90 z-40 hidden md:hidden">
+        <div class="flex justify-end p-4">
+            <button id="close-mobile-menu" class="text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center space-y-6 text-2xl text-white">
+            <a href="index.html" class="hover:text-red-600 transition-colors duration-300">หน้าแรก</a>
+            <a href="mala_menu_page.html" class="hover:text-red-600 transition-colors duration-300">เมนู</a>
+            <a href="pro.html" class="hover:text-red-600 transition-colors duration-300">โปรโมชั่น</a>
+            <a href="buy.html" class="hover:text-red-600 transition-colors duration-300">สั่งซื้อ</a>
+            <a href="buy.html" class="bg-red-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-red-700 transition-colors duration-300 mt-4">
+                สั่งซื้อ
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-red-600 mb-12">โปรโมชั่นพิเศษ</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Promotion 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">ลด 10% ทุกเมนู</h3>
+                    <p class="text-stone-700 mb-4">รับส่วนลดทันที 10% เมื่อสั่งเมนูใดก็ได้ในร้าน</p>
+                    <img src="https://placehold.co/600x400/FFD700/FFFFFF?text=โปรลด+10%25" alt="โปรโมชั่นลด 10%" class="rounded-lg mb-4 w-full">
+                    <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full w-full hover:bg-red-700 transition-colors duration-300">
+                        ใช้โปรโมชั่น
+                    </button>
+                </div>
+                
+                <!-- Promotion 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">ซื้อ 1 แถม 1</h3>
+                    <p class="text-stone-700 mb-4">เมื่อสั่งหม่าล่าหม้อไฟขนาดใหญ่ รับฟรี! น้ำดื่ม</p>
+                    <img src="https://placehold.co/600x400/FFA500/FFFFFF?text=โปร+1+แถม+1" alt="โปรโมชั่นซื้อ 1 แถม 1" class="rounded-lg mb-4 w-full">
+                    <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full w-full hover:bg-red-700 transition-colors duration-300">
+                        ใช้โปรโมชั่น
+                    </button>
+                </div>
+
+                <!-- Promotion 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">ส่วนลดพิเศษ</h3>
+                    <p class="text-stone-700 mb-4">สมาชิกใหม่รับคูปองส่วนลด 50 บาททันที</p>
+                    <img src="https://placehold.co/600x400/FF4500/FFFFFF?text=คูปอง+50+บาท" alt="คูปองส่วนลด" class="rounded-lg mb-4 w-full">
+                    <button class="bg-red-600 text-white font-semibold py-2 px-4 rounded-full w-full hover:bg-red-700 transition-colors duration-300">
+                        สมัครสมาชิก
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 หมาล่าหม้อไฟ. สงวนลิขสิทธิ์</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-red-600">Facebook</a>
+                <a href="#" class="hover:text-red-600">Instagram</a>
+                <a href="#" class="hover:text-red-600">Line</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Hide mobile menu on resize for desktop view
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
